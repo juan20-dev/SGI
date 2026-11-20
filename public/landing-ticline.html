@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma de Gestión Integral - TICLINE</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+              950: '#082f49',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col antialiased">
+
+  <!-- ENCABEZADO / NAVBAR -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-40 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/30">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+            TICLINE <span class="text-xs bg-blue-500/20 text-blue-300 border border-blue-400/30 px-2 py-0.5 rounded-full font-medium">SGI</span>
+          </h1>
+          <p class="text-xs text-slate-400">Plataforma de Gestión Integral</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs sm:text-sm">
+        <button onclick="openEmergencyModal()" class="flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 text-red-300 border border-red-500/30 px-3 py-1.5 rounded-lg transition font-medium">
+          <i data-lucide="phone-call" class="w-4 h-4 text-red-400"></i>
+          <span>Teléfonos de Emergencia</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-800 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <span class="inline-flex items-center gap-2 px-3 me-1 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-400/30 mb-4">
+        <i data-lucide="layers" class="w-3.5 h-3.5"></i> Sistema de Gestión Integral (SGI)
+      </span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
+        Plataforma de Gestión Integral <span class="text-blue-400">- TICLINE</span>
+      </h2>
+      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
+        Selecciona tu perfil o tipo de acceso para ver la documentación, comités, planes de emergencia y formularios correspondientes.
+      </p>
+
+      <!-- Buscador rápido -->
+      <div class="max-w-xl mx-auto relative">
+        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+          <i data-lucide="search" class="w-5 h-5"></i>
+        </div>
+        <input 
+          type="text" 
+          id="searchInput" 
+          onkeyup="filterResources()"
+          placeholder="Buscar documento, formato (ej. COPASST, ACI, Queja, Emergencia)..." 
+          class="w-full pl-10 pr-4 py-3 bg-slate-800/90 text-white placeholder-slate-400 rounded-xl border border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm shadow-inner transition"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- VISTA PRINCIPAL (MENÚ POR CATEGORÍAS) -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+    
+    <!-- PESTAÑAS / CARDS DE CATEGORÍA -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      
+      <!-- CARD INTERNO -->
+      <button onclick="switchCategory('interno')" id="card-interno" class="category-card group text-left p-6 rounded-2xl border-2 transition-all duration-200 bg-white shadow-sm hover:shadow-md border-blue-600 ring-2 ring-blue-500/20">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <i data-lucide="building-2" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-100 text-blue-800">Colaboradores</span>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors flex items-center gap-2">
+          🏢 INTERNO TICLINE
+        </h3>
+        <p class="text-xs text-slate-500 mt-1">
+          Comités, tarjeta ACI, procedimientos de convivencia, brigada y directorio interno.
+        </p>
+        <div class="mt-4 flex items-center text-xs font-semibold text-blue-600">
+          <span>9 Enlaces disponibles</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+        </div>
+      </button>
+
+      <!-- CARD VISITANTES -->
+      <button onclick="switchCategory('visitantes')" id="card-visitantes" class="category-card group text-left p-6 rounded-2xl border-2 transition-all duration-200 bg-white shadow-sm hover:shadow-md border-slate-200 hover:border-emerald-300">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <i data-lucide="users" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">Visitantes</span>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition-colors flex items-center gap-2">
+          👥 VISITANTES TICLINE
+        </h3>
+        <p class="text-xs text-slate-500 mt-1">
+          Inducción SGI, evaluación de visitantes, comités y teléfonos de socorro.
+        </p>
+        <div class="mt-4 flex items-center text-xs font-semibold text-emerald-600">
+          <span>6 Enlaces disponibles</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+        </div>
+      </button>
+
+      <!-- CARD CONTRATISTAS -->
+      <button onclick="switchCategory('contratistas')" id="card-contratistas" class="category-card group text-left p-6 rounded-2xl border-2 transition-all duration-200 bg-white shadow-sm hover:shadow-md border-slate-200 hover:border-indigo-300">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <i data-lucide="wrench" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-100 text-indigo-800">Proveedores</span>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors flex items-center gap-2">
+          🛠️ CONTRATISTAS TICLINE
+        </h3>
+        <p class="text-xs text-slate-500 mt-1">
+          Video inducción, normas de seguridad industrial y evaluación obligatoria SGI.
+        </p>
+        <div class="mt-4 flex items-center text-xs font-semibold text-indigo-600">
+          <span>2 Enlaces disponibles</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+        </div>
+      </button>
+    </div>
+
+    <!-- SECCIÓN RESULTADOS / LISTADO DE RECURSOS -->
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      
+      <!-- Título de sección activa -->
+      <div id="sectionHeader" class="bg-slate-100/80 px-6 py-4 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-3">
+          <span id="activeSectionBadge" class="p-2 rounded-lg bg-blue-600 text-white">
+            <i data-lucide="building-2" class="w-5 h-5"></i>
+          </span>
+          <div>
+            <h3 id="activeSectionTitle" class="font-bold text-slate-900 text-base">🏢 INTERNO TICLINE</h3>
+            <p id="activeSectionDesc" class="text-xs text-slate-500">Documentación y accesos directos para personal interno</p>
+          </div>
+        </div>
+        <span id="itemCount" class="text-xs font-medium text-slate-600 bg-slate-200/80 px-3 py-1 rounded-full">
+          Mostrando 9 recursos
+        </span>
+      </div>
+
+      <!-- LISTA DE ENLACES / TARJETAS -->
+      <div id="resourcesList" class="divide-y divide-slate-100">
+        <!-- Renderizado dinámico vía JavaScript -->
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL INDUCCIÓN VISITANTES -->
+  <div id="inductionModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200 animate-in fade-in zoom-in-95 duration-200">
+      <div class="bg-slate-900 text-white px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-400/30">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-white text-base">Inducción SGI – Visitantes</h3>
+            <p class="text-xs text-slate-400">Normas Básicas de Seguridad y Salud en el Trabajo</p>
+          </div>
+        </div>
+        <button onclick="closeInductionModal()" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <div class="p-6 overflow-y-auto space-y-4 text-sm text-slate-700 leading-relaxed">
+        <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-emerald-900 text-xs">
+          <p class="font-bold flex items-center gap-1.5 mb-1">
+            <i data-lucide="info" class="w-4 h-4 text-emerald-600"></i> BIENVENIDO A TICLINE
+          </p>
+          Como visitante en nuestras instalaciones, tu seguridad y bienestar son nuestra prioridad. Por favor lee atentamente las siguientes pautas de obligatoria observancia durante tu permanencia.
+        </div>
+
+        <div class="space-y-3">
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2 text-sm">
+              <span class="w-5 h-5 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center text-xs">1</span>
+              Ingreso y Permanencia
+            </h4>
+            <p class="text-xs text-slate-600">
+              Debes portar en todo momento tu escarapela de visitante visible. Mantente acompañado por el personal anfitrión designado de TICLINE en todo momento.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2 text-sm">
+              <span class="w-5 h-5 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center text-xs">2</span>
+              Equipos de Protección Personal (EPP)
+            </h4>
+            <p class="text-xs text-slate-600">
+              Si vas a ingresar a áreas técnicas o de operación, debes utilizar los EPP requeridos (calzado de seguridad, casco o chaleco reflejante) indicados por el líder de área.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2 text-sm">
+              <span class="w-5 h-5 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center text-xs">3</span>
+              Evacuación y Emergencias
+            </h4>
+            <p class="text-xs text-slate-600">
+              En caso de sonar la alarma de evacuación, conserva la calma, suspende tus actividades y sigue al brigadista de emergencias por las rutas marcadas hacia el Punto de Encuentro.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2 text-sm">
+              <span class="w-5 h-5 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center text-xs">4</span>
+              Prohibición de Fumar y Sustancias
+            </h4>
+            <p class="text-xs text-slate-600">
+              Está estrictamente prohibido fumar o vapear dentro de las instalaciones, así como ingresar bajo el efecto de bebidas alcohólicas o sustancias psicoactivas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-50 px-6 py-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+        <p class="text-xs text-slate-500">¿Finalizaste la lectura? Presenta la evaluación a continuación:</p>
+        <div class="flex items-center gap-2">
+          <button onclick="closeInductionModal()" class="px-4 py-2 border border-slate-300 text-slate-700 hover:bg-slate-100 rounded-lg text-xs font-medium transition">
+            Cerrar
+          </button>
+          <a href="https://forms.office.com/r/nWDCmVFde1" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold shadow-sm flex items-center gap-1.5 transition">
+            <span>Realizar Evaluación de Inducción</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL TELÉFONOS DE EMERGENCIA -->
+  <div id="emergencyModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200 animate-in fade-in zoom-in-95 duration-200">
+      <div class="bg-red-900 text-white px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-red-500/20 text-red-300 flex items-center justify-center border border-red-400/30">
+            <i data-lucide="phone-call" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-white text-base">Directorio de Emergencias</h3>
+            <p class="text-xs text-red-200">Líneas de atención urgente por sede</p>
+          </div>
+        </div>
+        <button onclick="closeEmergencyModal()" class="text-red-200 hover:text-white p-1 rounded-lg hover:bg-red-800 transition">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <div class="p-6 overflow-y-auto space-y-6">
+        <!-- Medellín -->
+        <div>
+          <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2 border-b border-slate-200 pb-2 mb-3">
+            <i data-lucide="map-pin" class="w-4 h-4 text-red-600"></i> Sede Medellín
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+              <span class="text-slate-700 font-medium">Línea Única</span>
+              <a href="tel:123" class="font-bold text-red-600 hover:underline">123</a>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+              <span class="text-slate-700 font-medium">Bomberos</span>
+              <a href="tel:6043855555" class="font-bold text-blue-600 hover:underline">(604) 385 55 55</a>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+              <span class="text-slate-700 font-medium">Cruz Roja</span>
+              <a href="tel:6043505300" class="font-bold text-blue-600 hover:underline">(604) 350 53 00</a>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+              <span class="text-slate-700 font-medium">Policía Nacional</span>
+              <a href="tel:112" class="font-bold text-slate-900 hover:underline">112</a>
+            </div>
+          </div>
+          <div class="mt-2 text-right">
+            <a href="https://ticlinevolucion.sharepoint.com/:i:/s/Administracin/IQBOi6veiB2XTJomUrrXOW0vARezWW_bN5xq6V8W8bCLTIA?e=1IGFLX" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs text-blue-600 hover:underline font-medium">
+              <span>Ver imagen oficial Medellín en SharePoint</span>
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pereira -->
+        <div>
+          <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2 border-b border-slate-200 pb-2 mb-3">
+            <i data-lucide="map-pin" class="w-4 h-4 text-red-600"></i> Sede Pereira
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+              <span class="text-slate-700 font-medium">Línea Única</span>
+              <a href="tel:123" class="font-bold text-red-600 hover:underline">123</a>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+              <span class="text-slate-700 font-medium">Bomberos</span>
+              <a href="tel:6063241800" class="font-bold text-blue-600 hover:underline">(606) 324 18 00</a>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+              <span class="text-slate-700 font-medium">Cruz Roja</span>
+              <a href="tel:6063248888" class="font-bold text-blue-600 hover:underline">(606) 324 88 88</a>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between">
+              <span class="text-slate-700 font-medium">Policía Nacional</span>
+              <a href="tel:112" class="font-bold text-slate-900 hover:underline">112</a>
+            </div>
+          </div>
+          <div class="mt-2 text-right">
+            <a href="https://ticlinevolucion.sharepoint.com/:i:/s/Administracin/IQCTFuKZ5VSBR5s0MWSZ9iyAAe5EHgA7u8QjYn3f5bSNxr4?e=KoNbYR" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs text-blue-600 hover:underline font-medium">
+              <span>Ver imagen oficial Pereira en SharePoint</span>
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-50 px-6 py-3 border-t border-slate-200 text-right">
+        <button onclick="closeEmergencyModal()" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-xs font-semibold hover:bg-slate-900 transition">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <p class="font-semibold text-slate-200">TICLINE S.A.S. - Sistema de Gestión Integral</p>
+          <p class="text-slate-500">Plataforma de redirección e información corporativa</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <span>© <span id="year"></span> TICLINE. Todos los derechos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DE LÓGICA -->
+  <script>
+    const DATA = {
+      interno: {
+        title: "🏢 INTERNO TICLINE",
+        desc: "Documentación, formularios de reporte, comités y directorio exclusivo para colaboradores TICLINE",
+        badgeBg: "bg-blue-600",
+        icon: "building-2",
+        items: [
+          {
+            title: "POL-GI-01 Politica del Sistema de Gestion Integradov05 QR.pdf",
+            code: "POL-GI-01",
+            url: "https://ticlinevolucion.sharepoint.com/:b:/s/Administracin/IQBkBzF7eN8PT77REGeDPo4DAbFEaSKpe3xX3GZAOjXn9AY?e=lO8nEc",
+            type: "Documento PDF / SharePoint",
+            desc: "Política del Sistema de Gestión Integrado de TICLINE con código QR oficial.",
+            status: "active"
+          },
+          {
+            title: "Comité Paritario de Seguridad y Salud en el Trabajo (COPASST)",
+            code: "COPASST",
+            url: "https://ticlinevolucion.sharepoint.com/:p:/s/Administracin/IQAFD_buOfeFRoqKaan1Mm_rAQuJGhUv9x7bCZ1PwiFPTI4?e=DF0gI4",
+            type: "Presentación SharePoint",
+            desc: "Documentación e integrantes vigentes del Comité Paritario de SST.",
+            status: "active"
+          },
+          {
+            title: "FR-GI-25 Tarjeta de Reporte ACI",
+            code: "FR-GI-25",
+            url: "https://forms.office.com/r/NCGjuLbfn6",
+            type: "Formulario Microsoft Forms",
+            desc: "Formato para reporte preventivo de Actos, Condiciones Inseguras e Incidentes.",
+            status: "active"
+          },
+          {
+            title: "Comité de convivencia laboral (CCL)",
+            code: "CCL",
+            url: "https://ticlinevolucion.sharepoint.com/:p:/s/Administracin/IQC4RmNiWvMgTIJG87f5ZyM2AdgSGBtVEoXQxWQ4BbLrmqM?e=6xKfC7",
+            type: "Presentación SharePoint",
+            desc: "Funciones y directrices del Comité de Convivencia Laboral.",
+            status: "active"
+          },
+          {
+            title: "M-GI-03 Manual de Convivencia Laboral",
+            code: "M-GI-03",
+            url: "https://ticlinevolucion.sharepoint.com/:b:/s/Administracin/IQDpIY7B4fzgSpbvnyu4z23NAQElb2lKBt12O6kWITfw_bw?e=jfgso0",
+            type: "Documento PDF / SharePoint",
+            desc: "Manual de convivencia laboral con directrices y pautas de conducta.",
+            status: "active"
+          },
+          {
+            title: "POL- GI - 03 Política Prevención Acoso Laboral",
+            code: "POL-GI-03",
+            url: "https://ticlinevolucion.sharepoint.com/:b:/s/Administracin/IQBpdF0Yb9pzSIxPgjI-wj09AVYbTp309Xn_2RpzXHXJAfA?e=8DBUc5",
+            type: "Documento PDF / SharePoint",
+            desc: "Política de prevención del acoso laboral (POL- GI - 03 POLITICA PREVENCIÓN ACOSO LABORALv03.pdf).",
+            status: "active"
+          },
+          {
+            title: "Procedimiento Queja Laboral",
+            code: "PROCEDIMIENTO",
+            url: "https://ticlinevolucion.sharepoint.com/:i:/s/Administracin/IQD2kjxAr2KZSaEiKWvyttAbAV3m4fzNUjF39nZYA5muy6I?e=Julf3P",
+            type: "Imagen / Infografía",
+            desc: "Flujo y pasos para el trámite y gestión de quejas de convivencia.",
+            status: "active"
+          },
+          {
+            title: "FR-GI-41 FORMATO QUEJA CCL",
+            code: "FR-GI-41",
+            url: "https://forms.office.com/r/mKtDhskLrH",
+            type: "Formulario Microsoft Forms",
+            desc: "Formulario para la radicación formal de quejas ante el CCL.",
+            status: "active"
+          },
+          {
+            title: "Procedimiento Reporte de enfermedad Laboral",
+            code: "PROCEDIMIENTO",
+            url: "https://ticlinevolucion.sharepoint.com/:i:/s/Administracin/IQC0qOzILf-rS7fs1WBhDOpmAY8x46jvl2uT-5tXsWrV1vw?e=RmdT74",
+            type: "Imagen / Infografía",
+            desc: "Flujo y pasos para el reporte de presuntas enfermedades laborales.",
+            status: "active"
+          },
+          {
+            title: "FR-GI-138 Reporte de Enfermedad Laboral",
+            code: "FR-GI-138",
+            url: "https://forms.cloud.microsoft/r/8ZZ9EL0uTs",
+            type: "Formulario Microsoft Cloud",
+            desc: "Formulario oficial para el reporte y radicación de presunta enfermedad laboral.",
+            status: "active"
+          },
+          {
+            title: "FR-GI-136 Matriz Roles y Responsabilidades Integrales",
+            code: "FR-GI-136",
+            url: "https://ticlinevolucion.sharepoint.com/:x:/s/Administracin/IQASlrRn5l4YSJZ4trmkXaOZAaFAQ6nUmJW-V2omVvcBNLY?e=VjIt0o",
+            type: "Documento Excel / SharePoint",
+            desc: "Matriz integral de roles y responsabilidades del SGI.",
+            status: "active"
+          },
+          {
+            title: "Líder PESV",
+            code: "LÍDER PESV",
+            url: "https://ticlinevolucion-my.sharepoint.com/:i:/g/personal/yuly_salamanca_ticline_co/IQAInH9PYMklT4ueQwAlmSypAZwDqOHOIE8xhx3-kr7Zwik",
+            type: "Imagen / Infografía",
+            desc: "Designación y funciones del Líder del Plan Estratégico de Seguridad Vial (PESV) en TICLINE.",
+            status: "active"
+          },
+          {
+            title: "Comité de seguridad Vial - CSV",
+            code: "CSV",
+            url: "https://ticlinevolucion-my.sharepoint.com/:b:/g/personal/yuly_salamanca_ticline_co/IQCA55iJjdSZQYMImjXtpzrXAQiXLoeFNlfWXF1JSfTxpfY",
+            type: "Documento PDF / SharePoint",
+            desc: "Conformación, directrices y actas del Comité de Seguridad Vial (CSV) de TICLINE.",
+            status: "active"
+          },
+          {
+            title: "Política de Seguridad Vial",
+            code: "POL-PESV",
+            url: "https://ticlinevolucion-my.sharepoint.com/:b:/g/personal/yuly_salamanca_ticline_co/IQAyg_W2n7djRJpSublvzWXiAY77JAycgQb3aqON7Ll7GOU",
+            type: "Documento PDF / SharePoint",
+            desc: "Política oficial de seguridad vial, compromisos institucionales y prevención de siniestros viales.",
+            status: "active"
+          },
+          {
+            title: "Objetivos e indicadores Vial",
+            code: "OBJ-PESV",
+            url: "https://ticlinevolucion.sharepoint.com/:i:/s/Administracin/IQBiObEWxNk6TroWJpzEvv7_AThDeuCq7Vmgaz3k6YyeQyA?e=z8HicX",
+            type: "Imagen / Infografía",
+            desc: "Objetivos y metas de gestión e indicadores periódicos de desempeño de la seguridad vial.",
+            status: "active"
+          },
+          {
+            title: "Programas PESV",
+            code: "PESV",
+            url: "https://ticlinevolucion-my.sharepoint.com/:i:/g/personal/yuly_salamanca_ticline_co/IQAJGwOhzLICRZEVZHGn6Y_WAWQtL2v96Pe1oknDXYMdtCA",
+            type: "Imagen / Infografía",
+            desc: "Programas y líneas de acción preventiva del Plan Estratégico de Seguridad Vial.",
+            status: "active"
+          },
+          {
+            title: "Protocolo en caso de accidente de transito",
+            code: "PROTOCOLO",
+            url: "https://ticlinevolucion-my.sharepoint.com/:x:/g/personal/yuly_salamanca_ticline_co/IQCBcBxaHYo3R7hQXv-hXFIsAS1zJaK5ii8eICX4Xs-h4j0",
+            type: "Documento Excel / SharePoint",
+            desc: "Protocolo de reporte, atención inmediata y pasos a seguir en caso de accidente de tránsito.",
+            status: "active"
+          },
+          {
+            title: "Brigada de emergencias",
+            code: "BRIGADA",
+            url: "https://ticlinevolucion.sharepoint.com/:p:/s/Administracin/IQDDcHMOiApJTaDge5bpk2ibAei4gXoRRm1r5qd7s2ihfvQ?e=DbYfAW",
+            type: "Presentación SharePoint",
+            desc: "Miembros capacitados de la Brigada de Emergencias.",
+            status: "active"
+          },
+          {
+            title: "Plan de emergencias",
+            code: "SGI-PLAN",
+            url: "https://ticlinevolucion.sharepoint.com/:w:/s/Administracin/IQCPHdf6Ci2xTZlmbxmvCvkdAW0kNKpyDv7K2wANMmkbrAI?e=ZkwgsI",
+            type: "Documento Word / SharePoint",
+            desc: "Protocolos de atención frente a emergencias y contingencias en sedes.",
+            status: "active"
+          },
+          {
+            title: "Números de emergencia Medellín",
+            code: "MEDELLÍN",
+            url: "https://ticlinevolucion.sharepoint.com/:i:/s/Administracin/IQBOi6veiB2XTJomUrrXOW0vARezWW_bN5xq6V8W8bCLTIA?e=1IGFLX",
+            type: "Directorio / Imagen",
+            desc: "Líneas de atención y primeros auxilios sede Medellín.",
+            status: "active"
+          },
+          {
+            title: "Números de emergencia Pereira",
+            code: "PEREIRA",
+            url: "https://ticlinevolucion.sharepoint.com/:i:/s/Administracin/IQCTFuKZ5VSBR5s0MWSZ9iyAAe5EHgA7u8QjYn3f5bSNxr4?e=KoNbYR",
+            type: "Directorio / Imagen",
+            desc: "Líneas de atención y primeros auxilios sede Pereira.",
+            status: "active"
+          }
+        ]
+      },
+      visitantes: {
+        title: "👥 VISITANTES TICLINE",
+        desc: "Guías de seguridad SGI, inducción de ingreso y directorio para visitantes",
+        badgeBg: "bg-emerald-600",
+        icon: "users",
+        items: [
+          {
+            title: "Inducción SGI – Visitantes",
+            code: "INDUCCIÓN",
+            url: "",
+            type: "Guía Interactiva",
+            desc: "Pautas obligatorias de seguridad y evacuación para visitantes.",
+            status: "interactive"
+          },
+          {
+            title: "Evaluación de inducción - visitantes",
+            code: "EVALUACIÓN",
+            url: "https://forms.office.com/r/nWDCmVFde1",
+            type: "Formulario Microsoft Forms",
+            desc: "Comprobante de comprensión de la inducción de visitantes.",
+            status: "active"
+          },
+          {
+            title: "Procedimiento Reporte de Accidentes en TICLINE",
+            code: "PROCEDIMIENTO",
+            url: "https://ticlinevolucion.sharepoint.com/:i:/s/Administracin/IQCftXutYm06SY9UN7Z7Xj2oAdUOr9agxBlGKQDzqd5j44U?e=3s3lYm",
+            type: "Imagen / Infografía",
+            desc: "Protocolo y flujo de comunicación ante cualquier accidente en instalaciones de TICLINE.",
+            status: "active"
+          },
+          {
+            title: "Brigada de emergencias",
+            code: "BRIGADA",
+            url: "https://ticlinevolucion.sharepoint.com/:p:/s/Administracin/IQDDcHMOiApJTaDge5bpk2ibAei4gXoRRm1r5qd7s2ihfvQ?e=DbYfAW",
+            type: "Presentación SharePoint",
+            desc: "Contactos e identificación de brigadistas de sede.",
+            status: "active"
+          },
+          {
+            title: "Números de emergencia Medellín",
+            code: "MEDELLÍN",
+            url: "https://ticlinevolucion.sharepoint.com/:i:/s/Administracin/IQBOi6veiB2XTJomUrrXOW0vARezWW_bN5xq6V8W8bCLTIA?e=1IGFLX",
+            type: "Directorio / Imagen",
+            desc: "Líneas de atención inmediata en Medellín.",
+            status: "active"
+          },
+          {
+            title: "Números de emergencia Pereira",
+            code: "PEREIRA",
+            url: "https://ticlinevolucion.sharepoint.com/:i:/s/Administracin/IQCTFuKZ5VSBR5s0MWSZ9iyAAe5EHgA7u8QjYn3f5bSNxr4?e=KoNbYR",
+            type: "Directorio / Imagen",
+            desc: "Líneas de atención inmediata en Pereira.",
+            status: "active"
+          }
+        ]
+      },
+      contratistas: {
+        title: "🛠️ CONTRATISTAS TICLINE",
+        desc: "Requisitos de seguridad industrial, inducción en video, políticas y formatos SGI",
+        badgeBg: "bg-indigo-600",
+        icon: "wrench",
+        items: [
+          {
+            title: "POL-GI-01 Politica del Sistema de Gestion Integradov05 QR.pdf",
+            code: "POL-GI-01",
+            url: "https://ticlinevolucion.sharepoint.com/:b:/s/Administracin/IQBkBzF7eN8PT77REGeDPo4DAbFEaSKpe3xX3GZAOjXn9AY?e=lO8nEc",
+            type: "Documento PDF / SharePoint",
+            desc: "Política institucional del Sistema de Gestión Integrado aplicable a contratistas y aliados de TICLINE con código QR oficial.",
+            status: "active"
+          },
+          {
+            title: "Inducción SGI – Contratistas",
+            code: "VIDEO SGI",
+            url: "https://ticlinevolucion-my.sharepoint.com/:v:/g/personal/yuly_salamanca_ticline_co/IQAhdC_nv3ZVQpzUE_uZXwv_AX7NWlL0PJG4EtJZ8Nktzrk?e=Hcmgdq",
+            type: "Video de Inducción",
+            desc: "Video de inducción con normas de trabajo seguro y permisos.",
+            status: "active"
+          },
+          {
+            title: "Evaluación de inducción - Contratistas",
+            code: "EVALUACIÓN",
+            url: "https://forms.cloud.microsoft/r/gxmWEsZpnQ",
+            type: "Formulario Microsoft Cloud",
+            desc: "Evaluación obligatoria previa al inicio de actividades.",
+            status: "active"
+          },
+          {
+            title: "FR-GI-25 TARJETA REPORTE ACI",
+            code: "FR-GI-25",
+            url: "https://forms.cloud.microsoft/r/NCGjuLbfn6",
+            type: "Formulario Microsoft Cloud",
+            desc: "Tarjeta oficial para el reporte de Actos, Condiciones e Incidentes (ACI).",
+            status: "active"
+          },
+          {
+            title: "Procedimiento Reporte de AT a TICLINE",
+            code: "PROCEDIMIENTO",
+            url: "https://ticlinevolucion.sharepoint.com/:i:/s/Administracin/IQA0YzVn2J5jR5GXtREHQ65iASQJVuTMEKj1qUTFmxhuKww?e=EY0mYW",
+            type: "Imagen / Infografía",
+            desc: "Flujo y pasos requeridos para el reporte inmediato de accidentes de trabajo (AT) a TICLINE.",
+            status: "active"
+          },
+          {
+            title: "Reporte Indicadores AT- EG - EL",
+            code: "INDICADORES",
+            url: "https://forms.cloud.microsoft/r/XuBeHh2s5X",
+            type: "Formulario Microsoft Cloud",
+            desc: "Formulario para el reporte periódico de indicadores de accidentalidad (AT), enfermedad general (EG) y laboral (EL).",
+            status: "active"
+          },
+          {
+            title: "Líder PESV",
+            code: "LÍDER PESV",
+            url: "https://ticlinevolucion-my.sharepoint.com/:i:/g/personal/yuly_salamanca_ticline_co/IQAInH9PYMklT4ueQwAlmSypAZwDqOHOIE8xhx3-kr7Zwik",
+            type: "Imagen / Infografía",
+            desc: "Designación y funciones del Líder del Plan Estratégico de Seguridad Vial (PESV) en TICLINE.",
+            status: "active"
+          },
+          {
+            title: "Comité de seguridad Vial - CSV",
+            code: "CSV",
+            url: "https://ticlinevolucion-my.sharepoint.com/:b:/g/personal/yuly_salamanca_ticline_co/IQCA55iJjdSZQYMImjXtpzrXAQiXLoeFNlfWXF1JSfTxpfY",
+            type: "Documento PDF / SharePoint",
+            desc: "Conformación, directrices y actas del Comité de Seguridad Vial (CSV) de TICLINE.",
+            status: "active"
+          },
+          {
+            title: "Política de Seguridad Vial",
+            code: "POL-PESV",
+            url: "https://ticlinevolucion-my.sharepoint.com/:b:/g/personal/yuly_salamanca_ticline_co/IQAyg_W2n7djRJpSublvzWXiAY77JAycgQb3aqON7Ll7GOU",
+            type: "Documento PDF / SharePoint",
+            desc: "Política oficial de seguridad vial, compromisos institucionales y prevención de siniestros viales aplicable a contratistas.",
+            status: "active"
+          },
+          {
+            title: "Objetivos e indicadores Vial",
+            code: "OBJ-PESV",
+            url: "https://ticlinevolucion.sharepoint.com/:i:/s/Administracin/IQBiObEWxNk6TroWJpzEvv7_AThDeuCq7Vmgaz3k6YyeQyA?e=z8HicX",
+            type: "Imagen / Infografía",
+            desc: "Objetivos y metas de gestión e indicadores periódicos de desempeño de la seguridad vial.",
+            status: "active"
+          },
+          {
+            title: "Programas PESV",
+            code: "PESV",
+            url: "https://ticlinevolucion-my.sharepoint.com/:i:/g/personal/yuly_salamanca_ticline_co/IQAJGwOhzLICRZEVZHGn6Y_WAWQtL2v96Pe1oknDXYMdtCA",
+            type: "Imagen / Infografía",
+            desc: "Programas y líneas de acción preventiva del Plan Estratégico de Seguridad Vial.",
+            status: "active"
+          },
+          {
+            title: "Protocolo en caso de accidente de transito",
+            code: "PROTOCOLO",
+            url: "https://ticlinevolucion-my.sharepoint.com/:x:/g/personal/yuly_salamanca_ticline_co/IQCBcBxaHYo3R7hQXv-hXFIsAS1zJaK5ii8eICX4Xs-h4j0",
+            type: "Documento Excel / SharePoint",
+            desc: "Protocolo de reporte, atención inmediata y pasos a seguir en caso de accidente de tránsito.",
+            status: "active"
+          }
+        ]
+      }
+    };
+
+    let currentCategory = 'interno';
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function renderResources(items) {
+      const container = document.getElementById('resourcesList');
+      document.getElementById('itemCount').textContent = `Mostrando ${items.length} recursos`;
+
+      if (items.length === 0) {
+        container.innerHTML = `
+          <div class="p-12 text-center text-slate-400">
+            <i data-lucide="search-x" class="w-12 h-12 mx-auto mb-3 opacity-50"></i>
+            <p class="font-medium text-slate-600">No se encontraron enlaces con este criterio.</p>
+            <p class="text-xs text-slate-400 mt-1">Intenta con otra palabra clave o selecciona otra categoría.</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = items.map((item, idx) => {
+        let iconName = 'file-text';
+        if (item.type.includes('Formulario')) iconName = 'form-input';
+        else if (item.type.includes('SharePoint')) iconName = 'presentation';
+        else if (item.type.includes('Imagen')) iconName = 'image';
+        else if (item.type.includes('Directorio')) iconName = 'phone';
+        else if (item.type.includes('Guía')) iconName = 'book-open';
+        else if (item.type.includes('Video')) iconName = 'video';
+
+        let actionButtonHtml = '';
+
+        if (item.status === 'active') {
+          actionButtonHtml = `
+            <a href="${item.url}" target="_blank" rel="noopener noreferrer" 
+               class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition shadow-sm hover:shadow shrink-0">
+              <span>Abrir Enlace</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          `;
+        } else if (item.status === 'interactive') {
+          actionButtonHtml = `
+            <button onclick="openInductionModal()" 
+                    class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition shadow-sm hover:shadow shrink-0">
+              <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+              <span>Ver Inducción</span>
+            </button>
+          `;
+        } else if (item.status === 'pending') {
+          actionButtonHtml = `
+            <button disabled 
+                    class="px-3.5 py-2 bg-amber-50 border border-amber-200 text-amber-800 rounded-xl text-xs font-semibold flex items-center gap-1.5 opacity-80 cursor-not-allowed shrink-0">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-600"></i>
+              <span>${item.badgeText}</span>
+            </button>
+          `;
+        }
+
+        return `
+          <div class="p-5 hover:bg-slate-50/80 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="${iconName}" class="w-5 h-5 text-slate-600"></i>
+              </div>
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                  <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 uppercase tracking-wider">
+                    ${item.code || 'DOC'}
+                  </span>
+                  <span class="text-[11px] text-slate-500 font-medium">${item.type}</span>
+                </div>
+                <h4 class="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  ${item.title}
+                </h4>
+                <p class="text-xs text-slate-500 mt-1 max-w-2xl">${item.desc}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 self-end sm:self-center">
+              ${actionButtonHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    function switchCategory(catId) {
+      currentCategory = catId;
+      const catInfo = DATA[catId];
+
+      // Update Cards Styling
+      ['interno', 'visitantes', 'contratistas'].forEach(id => {
+        const el = document.getElementById(`card-${id}`);
+        if (id === catId) {
+          el.className = 'category-card group text-left p-6 rounded-2xl border-2 transition-all duration-200 bg-white shadow-sm hover:shadow-md border-blue-600 ring-2 ring-blue-500/20';
+        } else {
+          el.className = 'category-card group text-left p-6 rounded-2xl border-2 transition-all duration-200 bg-white shadow-sm hover:shadow-md border-slate-200 hover:border-slate-300';
+        }
+      });
+
+      // Update Section Header
+      document.getElementById('activeSectionTitle').textContent = catInfo.title;
+      document.getElementById('activeSectionDesc').textContent = catInfo.desc;
+      document.getElementById('activeSectionBadge').className = `p-2 rounded-lg ${catInfo.badgeBg} text-white`;
+      document.getElementById('activeSectionBadge').innerHTML = `<i data-lucide="${catInfo.icon}" class="w-5 h-5"></i>`;
+
+      // Clear search and render category
+      document.getElementById('searchInput').value = '';
+      renderResources(catInfo.items);
+    }
+
+    function filterResources() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      if (!query) {
+        renderResources(DATA[currentCategory].items);
+        return;
+      }
+
+      // Search across ALL categories if typing
+      const allItems = [
+        ...DATA.interno.items,
+        ...DATA.visitantes.items,
+        ...DATA.contratistas.items
+      ];
+
+      const filtered = allItems.filter(item => 
+        item.title.toLowerCase().includes(query) ||
+        (item.code && item.code.toLowerCase().includes(query)) ||
+        item.desc.toLowerCase().includes(query) ||
+        item.type.toLowerCase().includes(query)
+      );
+
+      document.getElementById('activeSectionTitle').textContent = `🔍 Resultados de búsqueda: "${query}"`;
+      document.getElementById('activeSectionDesc').textContent = `Filtrando recursos coincidentes en todas las categorías`;
+
+      renderResources(filtered);
+    }
+
+    function openInductionModal() {
+      document.getElementById('inductionModal').classList.remove('hidden');
+    }
+
+    function closeInductionModal() {
+      document.getElementById('inductionModal').classList.add('hidden');
+    }
+
+    function openEmergencyModal() {
+      document.getElementById('emergencyModal').classList.remove('hidden');
+    }
+
+    function closeEmergencyModal() {
+      document.getElementById('emergencyModal').classList.add('hidden');
+    }
+
+    // Inicializar
+    document.addEventListener('DOMContentLoaded', () => {
+      switchCategory('interno');
+    });
+  </script>
+</body>
+</html>

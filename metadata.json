@@ -1,0 +1,6 @@
+{
+  "name": "Plataforma de Gestión Integral - TICLINE",
+  "description": "Portal de acceso rápido a la documentación, comités, reportes ACI, formularios y planes de emergencia de TICLINE.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

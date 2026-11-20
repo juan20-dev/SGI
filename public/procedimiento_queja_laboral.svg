@@ -1,0 +1,445 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1800" width="100%" height="100%" style="background-color: #f8fafc; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <style>
+      .title { font-weight: 900; }
+      .bold { font-weight: 700; }
+      .medium { font-weight: 500; }
+      .light { font-weight: 400; }
+    </style>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="1800" fill="#f1f5f9"/>
+
+  <!-- ================= TOP ROW ================= -->
+
+  <!-- CARA 1 (Dark Navy Cover) -->
+  <g transform="translate(20, 20)">
+    <rect width="373" height="860" rx="16" fill="#0A2540" filter="url(#shadow)"/>
+    
+    <!-- Cara Pill -->
+    <rect x="146" y="18" width="80" height="26" rx="6" fill="#FFFFFF"/>
+    <text x="186" y="35" text-anchor="middle" fill="#0A2540" font-size="12" font-weight="900" letter-spacing="1">CARA 1</text>
+
+    <!-- Main Title -->
+    <text x="30" y="110" fill="#FFFFFF" font-size="28" font-weight="900">¿Sientes que</text>
+    <text x="30" y="145" fill="#FFFFFF" font-size="28" font-weight="900">estás siendo</text>
+    <text x="30" y="180" fill="#FFFFFF" font-size="28" font-weight="900">víctima de</text>
+    <text x="30" y="220" fill="#F59E0B" font-size="30" font-weight="900">acoso laboral?</text>
+
+    <line x1="30" y1="242" x2="180" y2="242" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Subtitle -->
+    <text x="30" y="280" fill="#E2E8F0" font-size="15" font-weight="600">Presenta tu queja de</text>
+    <text x="30" y="302" fill="#E2E8F0" font-size="15" font-weight="600">forma segura, confidencial</text>
+    <text x="30" y="324" fill="#E2E8F0" font-size="15" font-weight="600">y respetuosa.</text>
+
+    <!-- Illustration Box -->
+    <g transform="translate(20, 360)">
+      <!-- Background Wave / Cityscape -->
+      <path d="M0 260 L0 120 Q 90 90, 180 130 T 333 110 L333 260 Z" fill="#1E3A8A" opacity="0.5"/>
+      
+      <!-- Characters Illustration Background -->
+      <rect width="333" height="280" rx="16" fill="#1E3A8A" opacity="0.3" stroke="#FFFFFF" stroke-opacity="0.1"/>
+      
+      <!-- Office Desk & People Vector Art -->
+      <rect x="30" y="200" width="273" height="15" rx="4" fill="#8D5B4C"/>
+      <rect x="50" y="215" width="12" height="50" fill="#603813"/>
+      <rect x="270" y="215" width="12" height="50" fill="#603813"/>
+
+      <!-- Laptop CCL -->
+      <rect x="140" y="170" width="50" height="30" rx="4" fill="#475569"/>
+      <rect x="130" y="197" width="70" height="5" rx="2" fill="#94A3B8"/>
+      <text x="165" y="190" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="900">CCL</text>
+
+      <!-- Person 1 (Green) -->
+      <circle cx="65" cy="120" r="22" fill="#F3A183"/>
+      <path d="M48 100 C 48 85, 82 85, 82 100 Z" fill="#291206"/>
+      <path d="M40 145 C 40 130, 90 130, 90 145 L 90 200 L 40 200 Z" fill="#16A34A"/>
+
+      <!-- Person 2 (Center Blue) -->
+      <circle cx="180" cy="110" r="20" fill="#F7C4A5"/>
+      <path d="M162 92 C 162 80, 198 80, 198 92 Z" fill="#422006"/>
+      <path d="M155 135 C 155 122, 205 122, 205 135 L 205 200 L 155 200 Z" fill="#2563EB"/>
+
+      <!-- Person 3 (Right Navy) -->
+      <circle cx="260" cy="115" r="22" fill="#F3A183"/>
+      <path d="M242 95 C 242 82, 278 82, 278 95 Z" fill="#1E1B4B"/>
+      <path d="M235 140 C 235 125, 285 125, 285 140 L 285 200 L 235 200 Z" fill="#1E293B"/>
+    </g>
+
+    <!-- Bottom Logo -->
+    <g transform="translate(186, 750)">
+      <circle cx="0" cy="0" r="28" fill="#1D4ED8" stroke="#3B82F6" stroke-width="2"/>
+      <path d="M-10 6 C-10 -2, -4 -6, 0 -6 C 4 -6, 10 -2, 10 6 Z" fill="#FFFFFF"/>
+      <circle cx="0" cy="-12" r="5" fill="#FFFFFF"/>
+      <circle cx="-12" cy="-8" r="4" fill="#93C5FD"/>
+      <circle cx="12" cy="-8" r="4" fill="#93C5FD"/>
+
+      <text x="0" y="45" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="800">Comité de</text>
+      <text x="0" y="63" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="800">Convivencia Laboral</text>
+    </g>
+  </g>
+
+  <!-- CARA 2 (Green Theme) -->
+  <g transform="translate(413, 20)">
+    <rect width="373" height="860" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" filter="url(#shadow)"/>
+    
+    <!-- Cara Pill -->
+    <rect x="146" y="18" width="80" height="26" rx="6" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="186" y="35" text-anchor="middle" fill="#334155" font-size="12" font-weight="900" letter-spacing="1">CARA 2</text>
+
+    <!-- Title -->
+    <text x="186" y="95" text-anchor="middle" fill="#15803D" font-size="26" font-weight="900">¿Qué es el</text>
+    <text x="186" y="128" text-anchor="middle" fill="#15803D" font-size="26" font-weight="900">acoso laboral?</text>
+
+    <line x1="156" y1="145" x2="216" y2="145" stroke="#16A34A" stroke-width="4" stroke-linecap="round"/>
+
+    <text x="30" y="188" fill="#334155" font-size="14" font-weight="600">Conducta persistente que</text>
+    <text x="30" y="210" fill="#334155" font-size="14" font-weight="600">afecta la dignidad, bienestar</text>
+    <text x="30" y="232" fill="#334155" font-size="14" font-weight="600">o condiciones de trabajo</text>
+    <text x="30" y="254" fill="#334155" font-size="14" font-weight="600">de una persona.</text>
+
+    <!-- Ejemplos Pill -->
+    <rect x="120" y="295" width="133" height="34" rx="17" fill="#15803D"/>
+    <text x="186" y="317" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="800">Ejemplos</text>
+
+    <!-- List Items -->
+    <!-- 1 -->
+    <g transform="translate(30, 350)">
+      <rect width="313" height="52" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+      <circle cx="30" cy="26" r="18" fill="#16A34A"/>
+      <!-- Icon face -->
+      <circle cx="25" cy="22" r="2" fill="#FFF"/><circle cx="35" cy="22" r="2" fill="#FFF"/>
+      <path d="M24 32 Q30 27 36 32" stroke="#FFF" stroke-width="2" fill="none"/>
+      <text x="65" y="31" fill="#1E293B" font-size="14" font-weight="700">Burlas o humillaciones</text>
+    </g>
+
+    <!-- 2 -->
+    <g transform="translate(30, 415)">
+      <rect width="313" height="52" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+      <circle cx="30" cy="26" r="18" fill="#16A34A"/>
+      <!-- Warning triangle -->
+      <path d="M30 16 L38 33 L22 33 Z" fill="#FFF"/>
+      <text x="30" y="30" text-anchor="middle" fill="#16A34A" font-size="10" font-weight="900">!</text>
+      <text x="65" y="31" fill="#1E293B" font-size="14" font-weight="700">Amenazas</text>
+    </g>
+
+    <!-- 3 -->
+    <g transform="translate(30, 480)">
+      <rect width="313" height="52" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+      <circle cx="30" cy="26" r="18" fill="#16A34A"/>
+      <circle cx="24" cy="22" r="2" fill="#FFF"/><circle cx="36" cy="22" r="2" fill="#FFF"/>
+      <line x1="22" y1="31" x2="38" y2="31" stroke="#FFF" stroke-width="2"/>
+      <text x="65" y="31" fill="#1E293B" font-size="14" font-weight="700">Maltrato verbal</text>
+    </g>
+
+    <!-- 4 -->
+    <g transform="translate(30, 545)">
+      <rect width="313" height="52" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+      <circle cx="30" cy="26" r="18" fill="#16A34A"/>
+      <circle cx="26" cy="22" r="3" fill="#FFF"/><circle cx="34" cy="22" r="3" fill="#FFF"/>
+      <path d="M20 33 C20 28, 30 28, 30 33" fill="#FFF"/>
+      <text x="65" y="31" fill="#1E293B" font-size="14" font-weight="700">Exclusión o aislamiento</text>
+    </g>
+
+    <!-- 5 -->
+    <g transform="translate(30, 610)">
+      <rect width="313" height="52" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+      <circle cx="30" cy="26" r="18" fill="#16A34A"/>
+      <rect x="22" y="17" width="16" height="18" rx="2" fill="#FFF"/>
+      <line x1="25" y1="21" x2="35" y2="21" stroke="#16A34A" stroke-width="2"/>
+      <line x1="25" y1="26" x2="35" y2="26" stroke="#16A34A" stroke-width="2"/>
+      <text x="65" y="24" fill="#1E293B" font-size="13" font-weight="700">Sobrecarga injustificada</text>
+      <text x="65" y="41" fill="#1E293B" font-size="13" font-weight="700">de trabajo</text>
+    </g>
+
+    <!-- 6 -->
+    <g transform="translate(30, 675)">
+      <rect width="313" height="52" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+      <circle cx="30" cy="26" r="18" fill="#16A34A"/>
+      <circle cx="30" cy="26" r="10" stroke="#FFF" stroke-width="2" fill="none"/>
+      <circle cx="30" cy="26" r="4" fill="#FFF"/>
+      <text x="65" y="31" fill="#1E293B" font-size="14" font-weight="700">Persecución laboral</text>
+    </g>
+
+    <!-- Bottom Green Decorative Wave -->
+    <path d="M0 800 Q 186 860, 373 780 L373 860 L0 860 Z" fill="#15803D"/>
+  </g>
+
+  <!-- CARA 3 (Blue Theme) -->
+  <g transform="translate(806, 20)">
+    <rect width="373" height="860" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" filter="url(#shadow)"/>
+    
+    <!-- Cara Pill -->
+    <rect x="146" y="18" width="80" height="26" rx="6" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="186" y="35" text-anchor="middle" fill="#334155" font-size="12" font-weight="900" letter-spacing="1">CARA 3</text>
+
+    <!-- Title -->
+    <text x="186" y="95" text-anchor="middle" fill="#1E40AF" font-size="26" font-weight="900">¿Cómo presentar</text>
+    <text x="186" y="128" text-anchor="middle" fill="#1E40AF" font-size="26" font-weight="900">una queja?</text>
+
+    <line x1="156" y1="145" x2="216" y2="145" stroke="#1E40AF" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Step 1 -->
+    <g transform="translate(20, 175)">
+      <rect width="333" height="150" rx="12" fill="#F0F6FF" stroke="#BFDBFE"/>
+      <circle cx="35" cy="35" r="18" fill="#1D4ED8"/>
+      <text x="35" y="42" text-anchor="middle" fill="#FFF" font-size="18" font-weight="900">1</text>
+      
+      <!-- Icon Doc -->
+      <rect x="250" y="20" width="55" height="55" rx="27.5" fill="#1E40AF"/>
+      <rect x="268" y="32" width="20" height="26" rx="2" fill="#FFF"/>
+
+      <text x="70" y="32" fill="#1E3A8A" font-size="14" font-weight="800">Solicita el formato</text>
+      <text x="70" y="50" fill="#1E3A8A" font-size="14" font-weight="800">FR-GI-41</text>
+
+      <text x="20" y="85" fill="#334155" font-size="12" font-weight="500">Formato de Queja y Recomendaciones del</text>
+      <text x="20" y="103" fill="#334155" font-size="12" font-weight="500">Comité de Convivencia Laboral.</text>
+      <text x="20" y="128" fill="#1E40AF" font-size="12" font-weight="700">Puedes solicitarlo a cualquier integrante del Comité.</text>
+    </g>
+
+    <!-- Down Arrow -->
+    <path d="M186 338 L186 360 M180 354 L186 360 L192 354" stroke="#1D4ED8" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Step 2 -->
+    <g transform="translate(20, 372)">
+      <rect width="333" height="150" rx="12" fill="#F0F6FF" stroke="#BFDBFE"/>
+      <circle cx="35" cy="35" r="18" fill="#1D4ED8"/>
+      <text x="35" y="42" text-anchor="middle" fill="#FFF" font-size="18" font-weight="900">2</text>
+      
+      <!-- Icon Clipboard -->
+      <rect x="250" y="20" width="55" height="55" rx="27.5" fill="#1E40AF"/>
+      <rect x="268" y="32" width="20" height="26" rx="2" fill="#FFF"/>
+
+      <text x="70" y="32" fill="#1E3A8A" font-size="14" font-weight="800">Diligéncialo con la</text>
+      <text x="70" y="50" fill="#1E3A8A" font-size="14" font-weight="800">información requerida.</text>
+
+      <text x="20" y="85" fill="#334155" font-size="12" font-weight="500">Incluye fecha, lugar, personas involucradas,</text>
+      <text x="20" y="103" fill="#334155" font-size="12" font-weight="500">descripción de los hechos y evidencias</text>
+      <text x="20" y="121" fill="#334155" font-size="12" font-weight="500">(si existen).</text>
+    </g>
+
+    <!-- Down Arrow -->
+    <path d="M186 535 L186 557 M180 551 L186 557 L192 551" stroke="#1D4ED8" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Step 3 -->
+    <g transform="translate(20, 568)">
+      <rect width="333" height="140" rx="12" fill="#F0F6FF" stroke="#BFDBFE"/>
+      <circle cx="35" cy="35" r="18" fill="#1D4ED8"/>
+      <text x="35" y="42" text-anchor="middle" fill="#FFF" font-size="18" font-weight="900">3</text>
+      
+      <rect x="250" y="20" width="55" height="55" rx="27.5" fill="#1E40AF"/>
+      <circle cx="277" cy="42" r="10" fill="#FFF"/>
+
+      <text x="70" y="32" fill="#1E3A8A" font-size="14" font-weight="800">Entrégalo al Comité de</text>
+      <text x="70" y="50" fill="#1E3A8A" font-size="14" font-weight="800">Convivencia Laboral.</text>
+
+      <text x="20" y="85" fill="#334155" font-size="12" font-weight="500">Tu información será tratada con absoluta</text>
+      <text x="20" y="103" fill="#334155" font-size="12" font-weight="500">confidencialidad.</text>
+    </g>
+
+    <!-- Bottom Lock Pill -->
+    <g transform="translate(20, 750)">
+      <rect width="333" height="56" rx="12" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <rect x="20" y="13" width="30" height="30" rx="8" fill="#1E40AF"/>
+      <!-- Lock symbol -->
+      <rect x="28" y="27" width="14" height="10" rx="2" fill="#FFF"/>
+      <path d="M31 27 L31 23 C31 21 39 21 39 23 L39 27" fill="none" stroke="#FFF" stroke-width="2"/>
+      <text x="65" y="32" fill="#1E3A8A" font-size="14" font-weight="900">Confidencialidad garantizada.</text>
+    </g>
+  </g>
+
+  <!-- ================= BOTTOM ROW ================= -->
+
+  <!-- CARA 4 (Purple Theme) -->
+  <g transform="translate(20, 910)">
+    <rect width="373" height="860" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" filter="url(#shadow)"/>
+    
+    <!-- Cara Pill -->
+    <rect x="146" y="18" width="80" height="26" rx="6" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="186" y="35" text-anchor="middle" fill="#334155" font-size="12" font-weight="900" letter-spacing="1">CARA 4</text>
+
+    <!-- Title -->
+    <text x="186" y="95" text-anchor="middle" fill="#581C87" font-size="26" font-weight="900">¿Qué sucede</text>
+    <text x="186" y="128" text-anchor="middle" fill="#581C87" font-size="26" font-weight="900">después?</text>
+
+    <line x1="156" y1="145" x2="216" y2="145" stroke="#6B21A8" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Timeline List -->
+    <line x1="88" y1="200" x2="88" y2="680" stroke="#CBD5E1" stroke-width="3" stroke-dasharray="6,6"/>
+
+    <!-- Step 1 -->
+    <g transform="translate(30, 180)">
+      <circle cx="28" cy="28" r="24" fill="#581C87"/>
+      <circle cx="58" cy="28" r="5" fill="#6B21A8"/>
+      <text x="78" y="34" fill="#1E293B" font-size="15" font-weight="800">Recepción de la queja</text>
+    </g>
+
+    <!-- Step 2 -->
+    <g transform="translate(30, 260)">
+      <circle cx="28" cy="28" r="24" fill="#581C87"/>
+      <circle cx="58" cy="28" r="5" fill="#6B21A8"/>
+      <text x="78" y="34" fill="#1E293B" font-size="15" font-weight="800">Análisis del caso</text>
+    </g>
+
+    <!-- Step 3 -->
+    <g transform="translate(30, 340)">
+      <circle cx="28" cy="28" r="24" fill="#581C87"/>
+      <circle cx="58" cy="28" r="5" fill="#6B21A8"/>
+      <text x="78" y="34" fill="#1E293B" font-size="15" font-weight="800">Entrevistas a las partes</text>
+    </g>
+
+    <!-- Step 4 -->
+    <g transform="translate(30, 420)">
+      <circle cx="28" cy="28" r="24" fill="#581C87"/>
+      <circle cx="58" cy="28" r="5" fill="#16A34A"/>
+      <text x="78" y="34" fill="#1E293B" font-size="15" font-weight="800">Conciliación y acuerdos</text>
+    </g>
+
+    <!-- Step 5 -->
+    <g transform="translate(30, 500)">
+      <circle cx="28" cy="28" r="24" fill="#581C87"/>
+      <circle cx="58" cy="28" r="5" fill="#16A34A"/>
+      <text x="78" y="34" fill="#1E293B" font-size="15" font-weight="800">Seguimiento a compromisos</text>
+    </g>
+
+    <!-- Step 6 -->
+    <g transform="translate(30, 580)">
+      <circle cx="28" cy="28" r="24" fill="#EAB308"/>
+      <circle cx="58" cy="28" r="5" fill="#EAB308"/>
+      <text x="78" y="34" fill="#1E293B" font-size="15" font-weight="800">Cierre del caso</text>
+    </g>
+
+    <!-- Bottom Info Box -->
+    <g transform="translate(20, 720)">
+      <rect width="333" height="90" rx="14" fill="#FAF5FF" stroke="#E9D5FF"/>
+      <circle cx="40" cy="45" r="20" fill="#6B21A8"/>
+      <text x="75" y="38" fill="#3B0764" font-size="12" font-weight="600">El Comité analizará tu caso de</text>
+      <text x="75" y="54" fill="#3B0764" font-size="12" font-weight="600">manera imparcial, confidencial y</text>
+      <text x="75" y="70" fill="#3B0764" font-size="12" font-weight="600">respetuosa.</text>
+    </g>
+  </g>
+
+  <!-- CARA 5 (Red / Rose Theme) -->
+  <g transform="translate(413, 910)">
+    <rect width="373" height="860" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" filter="url(#shadow)"/>
+    
+    <!-- Cara Pill -->
+    <rect x="146" y="18" width="80" height="26" rx="6" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <text x="186" y="35" text-anchor="middle" fill="#334155" font-size="12" font-weight="900" letter-spacing="1">CARA 5</text>
+
+    <!-- Title -->
+    <text x="186" y="95" text-anchor="middle" fill="#9F1239" font-size="26" font-weight="900">¿Y si no hay</text>
+    <text x="186" y="128" text-anchor="middle" fill="#9F1239" font-size="26" font-weight="900">acuerdo?</text>
+
+    <line x1="156" y1="145" x2="216" y2="145" stroke="#BE123C" stroke-width="4" stroke-linecap="round"/>
+
+    <text x="30" y="188" fill="#334155" font-size="13" font-weight="500">Si no se logra una conciliación,</text>
+    <text x="30" y="208" fill="#334155" font-size="13" font-weight="500">no se cumplen los compromisos</text>
+    <text x="30" y="228" fill="#334155" font-size="13" font-weight="500">o la conducta continúa, podrás:</text>
+
+    <!-- Options -->
+    <!-- Option 1 -->
+    <g transform="translate(30, 270)">
+      <rect width="313" height="80" rx="12" fill="#FFF1F2" stroke="#FECDD3"/>
+      <rect x="15" y="15" width="50" height="50" rx="10" fill="#BE123C"/>
+      <!-- Scale icon -->
+      <path d="M40 25 L40 45 M30 32 L50 32" stroke="#FFF" stroke-width="2"/>
+      <text x="80" y="38" fill="#881337" font-size="14" font-weight="700">Acudir ante el</text>
+      <text x="80" y="56" fill="#881337" font-size="14" font-weight="700">Inspector de Trabajo.</text>
+    </g>
+
+    <!-- Option 2 -->
+    <g transform="translate(30, 370)">
+      <rect width="313" height="80" rx="12" fill="#FFF1F2" stroke="#FECDD3"/>
+      <rect x="15" y="15" width="50" height="50" rx="10" fill="#BE123C"/>
+      <!-- Gavel -->
+      <path d="M30 38 L45 23 M40 23 L47 30" stroke="#FFF" stroke-width="3"/>
+      <text x="80" y="38" fill="#881337" font-size="14" font-weight="700">Presentar la demanda</text>
+      <text x="80" y="56" fill="#881337" font-size="14" font-weight="700">ante el juez competente.</text>
+    </g>
+
+    <!-- Option 3 -->
+    <g transform="translate(30, 470)">
+      <rect width="313" height="90" rx="12" fill="#FFF1F2" stroke="#FECDD3"/>
+      <rect x="15" y="20" width="50" height="50" rx="10" fill="#BE123C"/>
+      <text x="80" y="38" fill="#881337" font-size="13" font-weight="700">El Comité informará a la</text>
+      <text x="80" y="54" fill="#881337" font-size="13" font-weight="700">Gerencia de la empresa y</text>
+      <text x="80" y="70" fill="#881337" font-size="13" font-weight="700">cerrará el caso.</text>
+    </g>
+
+    <!-- Support Box -->
+    <g transform="translate(20, 680)">
+      <rect width="333" height="130" rx="16" fill="#FFE4E6" stroke="#FDA4AF" stroke-width="1.5"/>
+      <path d="M166 25 Q166 15, 176 25 T186 25 Q186 40, 166 50 Q146 40, 146 25 T156 25 Z" fill="#E11D48"/>
+      <text x="166" y="80" text-anchor="middle" fill="#881337" font-size="18" font-weight="900">No estás solo.</text>
+      <text x="166" y="102" text-anchor="middle" fill="#9F1239" font-size="13" font-weight="700">Existen mecanismos para</text>
+      <text x="166" y="118" text-anchor="middle" fill="#9F1239" font-size="13" font-weight="700">proteger tus derechos.</text>
+    </g>
+  </g>
+
+  <!-- CARA 6 (Dark Navy/Purple Theme) -->
+  <g transform="translate(806, 910)">
+    <rect width="373" height="860" rx="16" fill="#1D1B4B" filter="url(#shadow)"/>
+    
+    <!-- Cara Pill -->
+    <rect x="146" y="18" width="80" height="26" rx="6" fill="#FFFFFF"/>
+    <text x="186" y="35" text-anchor="middle" fill="#1D1B4B" font-size="12" font-weight="900" letter-spacing="1">CARA 6</text>
+
+    <!-- Title -->
+    <text x="186" y="105" text-anchor="middle" fill="#FFFFFF" font-size="32" font-weight="900">Recuerda</text>
+    <line x1="156" y1="125" x2="216" y2="125" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Cards -->
+    <!-- Card 1 -->
+    <g transform="translate(25, 170)">
+      <rect width="323" height="110" rx="14" fill="#2E2A72" stroke="#4338CA"/>
+      <circle cx="40" cy="55" r="22" fill="#312E81" stroke="#6366F1"/>
+      <!-- Lock -->
+      <rect x="33" y="55" width="14" height="10" rx="2" fill="#F59E0B"/>
+      <path d="M36 55 L36 51 C36 49, 44 49, 44 51 L44 55" fill="none" stroke="#F59E0B" stroke-width="2"/>
+      <text x="80" y="48" fill="#E0E7FF" font-size="14" font-weight="600">Tu queja será tratada</text>
+      <text x="80" y="68" fill="#FFFFFF" font-size="15" font-weight="900">con confidencialidad.</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(25, 305)">
+      <rect width="323" height="110" rx="14" fill="#2E2A72" stroke="#4338CA"/>
+      <circle cx="40" cy="55" r="22" fill="#312E81" stroke="#6366F1"/>
+      <rect x="32" y="45" width="16" height="20" rx="2" fill="#38BDF8"/>
+      <text x="80" y="48" fill="#E0E7FF" font-size="14" font-weight="600">Todo el proceso quedará</text>
+      <text x="80" y="68" fill="#FFFFFF" font-size="15" font-weight="900">documentado.</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(25, 440)">
+      <rect width="323" height="150" rx="14" fill="#2E2A72" stroke="#4338CA"/>
+      <circle cx="40" cy="55" r="22" fill="#312E81" stroke="#6366F1"/>
+      <circle cx="40" cy="55" r="10" stroke="#38BDF8" stroke-width="2" fill="none"/>
+      <line x1="40" y1="55" x2="40" y2="48" stroke="#38BDF8" stroke-width="2"/>
+      <line x1="40" y1="55" x2="45" y2="55" stroke="#38BDF8" stroke-width="2"/>
+      <text x="80" y="42" fill="#E0E7FF" font-size="13" font-weight="500">El procedimiento tiene un</text>
+      <text x="80" y="60" fill="#E0E7FF" font-size="13" font-weight="500">tiempo máximo de</text>
+      <text x="80" y="82" fill="#F59E0B" font-size="16" font-weight="900">65 días calendario</text>
+      <text x="80" y="102" fill="#E0E7FF" font-size="13" font-weight="500">desde la recepción</text>
+      <text x="80" y="120" fill="#E0E7FF" font-size="13" font-weight="500">de la queja.</text>
+    </g>
+
+    <!-- Wave footer -->
+    <path d="M0 720 Q 186 670, 373 730 L373 860 L0 860 Z" fill="#312E81"/>
+
+    <g transform="translate(186, 770)">
+      <circle cx="0" cy="0" r="22" fill="#4338CA"/>
+      <!-- People icon -->
+      <circle cx="0" cy="-4" r="5" fill="#FFF"/>
+      <path d="M-8 6 C-8 0, 8 0, 8 6 Z" fill="#FFF"/>
+
+      <text x="0" y="38" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="800">Comité de Convivencia Laboral</text>
+      <text x="0" y="58" text-anchor="middle" fill="#C7D2FE" font-size="12" font-style="italic" font-weight="500">Convivencia y respeto, nuestro compromiso. ♡</text>
+    </g>
+  </g>
+</svg>
